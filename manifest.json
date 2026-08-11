@@ -1,0 +1,22 @@
+{
+  "id": "./",
+  "name": "Meu Cofre",
+  "short_name": "Meu Cofre",
+  "description": "Cofre pessoal criptografado para documentos, contas, arquivos e cursos.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "categories": ["productivity", "education", "utilities"],
+  "icons": [
+    {
+      "src": "./icone.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
