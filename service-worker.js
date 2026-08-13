@@ -1,5 +1,5 @@
 /* Meu Cofre PWA — aumente esta versão quando alterar arquivos do app. */
-const CACHE_VERSION = '1.0.6';
+const CACHE_VERSION = '1.1.0';
 const CACHE_NAME = `meu-cofre-${CACHE_VERSION}`;
 const APP_SHELL = [
   './',
@@ -12,12 +12,16 @@ const PDF_ASSETS = [
   'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/build/pdf.min.mjs',
   'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/build/pdf.worker.min.mjs'
 ];
+const OCR_ASSETS = [
+  'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.esm.min.js'
+];
+const EXTERNAL_ASSETS = [...PDF_ASSETS, ...OCR_ASSETS];
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
     await cache.addAll(APP_SHELL);
-    await Promise.allSettled(PDF_ASSETS.map(async url => {
+    await Promise.allSettled(EXTERNAL_ASSETS.map(async url => {
       const response = await fetch(url, { mode: 'cors' });
       if (response.ok) await cache.put(url, response.clone());
     }));
@@ -42,9 +46,9 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
-  const isPdfAsset = PDF_ASSETS.includes(url.href);
+  const isExternalAsset = EXTERNAL_ASSETS.includes(url.href) || url.hostname === 'cdn.jsdelivr.net';
 
-  if (isPdfAsset) {
+  if (isExternalAsset) {
     event.respondWith((async () => {
       const cached = await caches.match(request);
       if (cached) return cached;
