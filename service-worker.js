@@ -1,5 +1,5 @@
 /* Meu Cofre PWA — aumente esta versão quando alterar arquivos do app. */
-const CACHE_VERSION = '1.0.4';
+const CACHE_VERSION = '1.0.5';
 const CACHE_NAME = `meu-cofre-${CACHE_VERSION}`;
 const APP_SHELL = [
   './',
