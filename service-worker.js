@@ -5,7 +5,8 @@ const APP_SHELL = [
   './',
   './index.html',
   './manifest.json',
-  './icone.png'
+  './icone.png',
+  './auth-guard-v3.js'
 ];
 
 const PDF_ASSETS = [
