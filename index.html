@@ -112,6 +112,8 @@ document.documentElement.classList.add("central-guard-lock");
 </script>
 
 <script src="auth-guard-v3.js"></script>
+<script>window.CENTRAL_SYNC_CONFIG={"appId":"cofre-documentos","localStorageKeys":["meuCofreVaultFallbackV1","meuCofreStorageModeV1"],"indexedDB":[{"id":"vault","dbName":"meuCofreDB","storeName":"vault","mode":"single","key":"main"}],"debounceMs":8000};</script>
+<script src="central-sync.js"></script>
   
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" type="image/png" href="./icone.png">
@@ -592,7 +594,7 @@ body.dark .cert-card{background:#151a24;border-color:#292f3a}body.dark .cert-thu
 <script>
 const $=id=>document.getElementById(id);
 const enc=new TextEncoder(),dec=new TextDecoder();
-const APP_VERSION='1.1.0';
+const APP_VERSION='1.1.1';
 const DB_NAME='meuCofreDB',STORE='vault',RECORD='main';
 const FALLBACK_VAULT_KEY='meuCofreVaultFallbackV1',STORAGE_MODE_KEY='meuCofreStorageModeV1';
 const PASSKEY_META='meuCofrePasskeyV1',FAILED_KEY='meuCofreFailedAttemptsV1';

@@ -1,12 +1,13 @@
 /* Meu Cofre PWA — aumente esta versão quando alterar arquivos do app. */
-const CACHE_VERSION = '1.1.0';
+const CACHE_VERSION = '1.1.1';
 const CACHE_NAME = `meu-cofre-${CACHE_VERSION}`;
 const APP_SHELL = [
   './',
   './index.html',
   './manifest.json',
   './icone.png',
-  './auth-guard-v3.js'
+  './auth-guard-v3.js',
+  './central-sync.js'
 ];
 
 const PDF_ASSETS = [
